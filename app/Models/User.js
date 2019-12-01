@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const Model = use('Model')
 const Hash = use('Hash')
@@ -30,6 +30,13 @@ class User extends Model {
    */
   tokens () {
     return this.hasMany('App/Models/Token')
+  }
+
+  static get traits () {
+    return [
+      '@provider:Adonis/Acl/HasRole',
+      '@provider:Adonis/Acl/HasPermission'
+    ]
   }
 }
 
